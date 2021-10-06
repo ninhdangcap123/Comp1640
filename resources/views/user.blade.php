@@ -32,7 +32,7 @@
       <ul class="nav navbar-nav">
         <li class=""><a href="home">Home</a></li>
         <li><a href="page">Personal Page</a></li>
-        <li><a href="Idea">Idea</a></li>
+        <li><a href="idea">Idea</a></li>
       </ul>
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group input-group">

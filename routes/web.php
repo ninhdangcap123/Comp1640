@@ -14,7 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('create');
+});
+
+Route::get('/user', function () {
+    return view('user');
+});
+
+Route::get('/Idea', function () {
+    return view('idea');
+});
+
+Route::get('/page', function () {
+    return view('page');
 });
 
 Auth::routes();
