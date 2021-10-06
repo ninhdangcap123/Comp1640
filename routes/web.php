@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('create');
-});
+Route::get('/', 'App\Http\Controllers\IdeaController@store')->name('create');
 
 Route::get('/user', function () {
     return view('user');

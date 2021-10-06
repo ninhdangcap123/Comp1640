@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Ideas\StoreRequest;
+
+use App\Http\Requests\Ideas\IdeaStoreRequest;
 use App\Models\Idea;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,8 @@ class IdeaController extends Controller
      */
     public function index()
     {
-        $ideas = Idea::orderby('create_at')->paginate(5)->get();
-        return view('idea.index',compact('ideas'));
+        $ideas = Idea::latest();
+        return view('create',compact('ideas'));
     }
 
     /**
@@ -36,12 +37,16 @@ class IdeaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(IdeaStoreRequest $request)
     {
-        $idea = Idea::insert([
+        $request->validate([
+            'title'=>'required',
+            'content'=>'required'
+        ]);
+        $idea = Idea::create([
             'title' => $request->title,
             'content'=> $request->content,
-            
+
 
         ]);
         return redirect('/');
