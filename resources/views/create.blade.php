@@ -1,7 +1,19 @@
-<form action="App\Http\Controllers\PostsController@store" id="usrform">
-  Title: <input type="text" name="title">
-  <input type="submit">
-</form>
+@extends('layouts.app')
 
-<textarea name="body" form="usrform">Enter content of the post heare
-</textarea>
+@section('content')
+	<h1>Create Posts</h1>
+	{!! Form::open(['action' => 'App\Http\Controllers\PostsController@store', 'method' => 'POST']) !!}
+	<div class="form-group">
+		{{Form::label('title', 'Title')}}
+		{{form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title'])}}
+
+	</div>
+	<div class="form-group">
+		{{Form::label('body', 'Body')}}
+		{{form::textarea('body', '', ['class' => 'form-control', 'placeholder' => 'Body'])}}
+
+	</div>
+	{{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+   
+{!! Form::close() !!}
+@endsection
