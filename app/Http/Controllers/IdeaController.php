@@ -16,8 +16,13 @@ class IdeaController extends Controller
      */
     public function index()
     {
+<<<<<<< Updated upstream
         $ideas = Idea::latest();
         return view('create',compact('ideas'));
+=======
+        $ideas = Idea::latest()->paginate(5);
+        return view('idea.index',compact('ideas',$ideas));
+>>>>>>> Stashed changes
     }
 
     /**
@@ -49,7 +54,11 @@ class IdeaController extends Controller
 
 
         ]);
+<<<<<<< Updated upstream
         return redirect('/');
+=======
+        return redirect()->route('idea.index');
+>>>>>>> Stashed changes
     }
 
     /**
